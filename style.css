@@ -1,0 +1,1042 @@
+/* =========================================================
+   EDITORIAL PORTFOLIO DESIGN SYSTEM (PERFORMANCE OPTIMIZED)
+   ========================================================= */
+
+:root {
+    --bg-white: #ffffff;
+    --bg-blush: #f4eff0;       /* Exact pale pinkish-beige accent from PDF */
+    --text-primary: #1a1a1a;   /* Deep charcoal black */
+    --text-secondary: #5a5a5a; /* Architectural caption grey */
+    --text-muted: #8e8e8e;     /* Subdued metadata grey */
+    --line-dark: #1a1a1a;
+    --line-subtle: #e2dedf;
+    --font-editorial: 'Playfair Display', serif;
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-tech: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-white);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1.65;
+    font-size: 13.5px;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ================= STICKY TOP NAVIGATION ================= */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    padding: 0 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transform: translateZ(0);
+}
+
+.brand-logo {
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.scroll-status {
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+#current-page-num {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Floating Progress Bar */
+.scroll-progress-bar {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.04);
+    z-index: 999;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--text-primary);
+    transform: translateZ(0);
+}
+
+/* ================= DYNAMIC BACKGROUND STAGE (GPU OPTIMIZED) ================= */
+#dynamic-bg-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-out;
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+.bg-layer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bg-hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg-hero-img,
+.bg-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: contrast(105%) brightness(0.98);
+    transform: translateZ(0);
+}
+
+.bg-plan-img {
+    object-fit: contain;
+    object-position: center;
+    width: 88vw;
+    height: 88vh;
+    position: absolute;
+    top: 6vh;
+    left: 6vw;
+    filter: contrast(135%) brightness(0.90);
+    opacity: 0.48;
+}
+
+.bg-table-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.38);
+    filter: contrast(110%) brightness(0.96);
+    opacity: 0.48;
+}
+
+/* Performant Solid Tint Overlay (Zero Lag) */
+.bg-frosted-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.76);
+}
+
+.overlay-warm {
+    background: rgba(250, 246, 242, 0.74);
+}
+
+.overlay-amber {
+    background: rgba(252, 247, 241, 0.72);
+}
+
+.overlay-stone {
+    background: rgba(248, 247, 245, 0.74);
+}
+
+/* Fast 6-Card Collage for Cover / About / Contents */
+.collage-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 4rem;
+    opacity: 0.40;
+    transform: translateZ(0);
+}
+
+.collage-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.collage-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Container & Spreads */
+#portfolio-container {
+    position: relative;
+    z-index: 1;
+}
+
+.pdf-spread {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line-subtle);
+    background: transparent;
+    contain: layout paint;
+}
+
+.white-bg { 
+    background-color: rgba(255, 255, 255, 0.90); 
+}
+
+.accent-blush { 
+    background-color: rgba(244, 239, 240, 0.92); 
+}
+
+.editorial-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--line-dark);
+}
+
+/* ================= PAGE 1: COVER ================= */
+.page-cover {
+    display: flex;
+}
+
+.page-cover .split-left {
+    flex: 0.68;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem;
+}
+
+.page-cover .split-right {
+    flex: 0.32;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem;
+}
+
+.cover-center-content {
+    width: 100%;
+    max-width: 520px;
+}
+
+.cover-main-title {
+    font-family: var(--font-editorial);
+    font-size: 8rem;
+    line-height: 1.05;
+    letter-spacing: 8px;
+    font-weight: 400;
+    margin: 3rem 0;
+    color: var(--text-primary);
+}
+
+.cover-author-tag {
+    text-align: right;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    color: var(--text-primary);
+    margin-top: 1.2rem;
+    font-weight: 400;
+}
+
+.cover-aesthetic-badge {
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* ================= PAGE 2: ABOUT ================= */
+.page-about {
+    display: flex;
+}
+
+.about-col-left {
+    flex: 0.48;
+    padding: 6rem 5rem 6rem 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-col-right {
+    flex: 0.52;
+    padding: 6rem 6rem 6rem 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.editorial-section-title {
+    font-family: var(--font-body);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 2.5rem;
+    color: var(--text-primary);
+}
+
+.about-portrait-wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 2rem;
+}
+
+.about-portrait-wrapper .img-frame {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.about-portrait-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.designer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.designer-title {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.bio-paragraph {
+    max-width: 420px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.contact-details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    width: 100%;
+}
+
+.resume-heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+    color: var(--text-primary);
+}
+
+.timeline-item {
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.time-tag {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.time-desc {
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.skill-meter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 220px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.dots-meter {
+    display: flex;
+    gap: 4px;
+}
+
+.dots-meter i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dots-meter i.f { background-color: var(--text-primary); }
+.dots-meter i.e { border: 1px solid var(--text-primary); background: transparent; }
+
+.clean-bullet-list {
+    list-style: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.cert-text, .languages-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ================= PAGE 3: CONTENTS ================= */
+.page-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem;
+}
+
+.contents-container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.contents-cards-row {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.content-card {
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-num {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #b0b0b0;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-body);
+}
+
+.card-thumb-frame {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    margin-bottom: 1.2rem;
+}
+
+.card-thumb-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.content-card:hover .card-thumb-frame img {
+    transform: scale(1.04);
+}
+
+.card-label {
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ================= PROJECT BASE STYLES ================= */
+.page-project {
+    padding: 5rem 6rem;
+    display: flex;
+    align-items: center;
+}
+
+.project-number-title {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.project-number-title .num-bold {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #9a9a9a;
+}
+
+.project-number-title .name-clean {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+.project-sub-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--line-dark);
+    margin-bottom: 2rem;
+}
+
+.shadow-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+}
+
+.architectural-sheet-frame {
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+.editorial-sheet-caption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 0.8rem;
+}
+
+/* ================= PAGE 4: RIVAYAT 1 ================= */
+.project-layout-p4 {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.dual-photos-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.2rem;
+}
+
+.dual-photos-row .photo-box {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.dual-photos-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-intro-paragraph {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
+}
+
+.p4-right-side img {
+    max-height: 75vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* ================= PAGE 5: RIVAYAT 2 ================= */
+.project-layout-p5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.p5-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.p5-left-side .img-frame {
+    height: 38vh;
+    overflow: hidden;
+}
+
+.p5-left-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p5-editorial-narrative {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+}
+
+.p5-sections-frame img {
+    max-height: 48vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* ================= PAGE 6: RIVAYAT 3 ================= */
+.project-layout-p6 {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.p6-renderings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.render-quad-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.render-quad-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.siteplan-canvas-frame {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.siteplan-canvas-frame img {
+    max-height: 78vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* ================= PAGE 7: KASURIYA 1 ================= */
+.project-layout-p7 {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.hero-lamp-container {
+    margin-bottom: 2rem;
+    max-width: 480px;
+}
+
+.hero-lamp-container .img-frame {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.hero-lamp-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lamp-story-paragraphs {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+.p7-right-side {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.lamp-cad-frame {
+    flex: 1;
+}
+
+.lamp-cad-frame img {
+    max-height: 75vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+.lamp-process-column {
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.process-thumbnail {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.process-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.process-caption-tag {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+/* ================= PAGE 8: KASURIYA 2 ================= */
+.project-layout-p8 {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.p8-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.detail-photo-card .img-frame {
+    height: 38vh;
+    overflow: hidden;
+}
+
+.detail-photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kasuriya-full-narrative {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.lamp-room-frame .img-frame {
+    height: 44vh;
+    overflow: hidden;
+}
+
+.lamp-room-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= PAGE 9: COFFEE TABLE 1 ================= */
+.project-layout-p9 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.table-top-hero {
+    margin-bottom: 2rem;
+}
+
+.table-top-hero .img-frame {
+    height: 45vh;
+    overflow: hidden;
+}
+
+.table-top-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.table-concept-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.process-text-block {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.process-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.woodworking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.woodwork-photo {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.woodwork-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= PAGE 10: COFFEE TABLE 2 ================= */
+.project-layout-p10 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 3.5rem;
+}
+
+.p10-top-narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.p10-hero-table-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.clean-isolated-frame {
+    max-height: 48vh;
+    display: flex;
+    justify-content: center;
+}
+
+.clean-isolated-frame img {
+    max-height: 48vh;
+    width: auto;
+    object-fit: contain;
+}
+
+.p10-configurations-strip {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.configs-img-frame {
+    max-width: 750px;
+    width: 100%;
+}
+
+.configs-img-frame img {
+    width: 100%;
+    object-fit: contain;
+}
+
+/* ================= FOOTER ================= */
+.portfolio-footer {
+    background-color: var(--text-primary);
+    color: #fff;
+    padding: 4rem 6rem;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    font-family: var(--font-tech);
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.footer-copy {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.footer-back-top a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* ================= LIGHTBOX MODAL ================= */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #ccc;
+}
+
+.lightbox-caption {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1024px) {
+    .top-nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .pdf-spread { flex-direction: column; min-height: auto; padding: 4rem 2rem; }
+    .page-cover .split-left, .page-cover .split-right { flex: 1; padding: 2rem 0; width: 100%; }
+    .cover-main-title { font-size: 4.5rem; }
+    .about-col-left, .about-col-right { flex: 1; padding: 2rem 0; width: 100%; }
+    .resume-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contents-cards-row { flex-direction: column; gap: 2rem; }
+    .project-layout-p4, .project-layout-p5, .project-layout-p6, .project-layout-p7, .project-layout-p8, .project-layout-p9 {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .p10-top-narrative { grid-template-columns: 1fr; gap: 1.5rem; }
+    .p7-right-side { flex-direction: column; }
+    .lamp-process-column { width: 100%; flex-direction: row; }
+    .portfolio-footer { padding: 3rem 2rem; }
+    .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+}

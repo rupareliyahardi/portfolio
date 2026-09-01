@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO | Hardi Rupareliya</title>
+    <!-- Modern Editorial Fonts matching the PDF -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Sticky Navigation & Quick Page Index -->
+    <nav class="top-nav">
+        <a href="#page-1" class="brand-logo">HARDI RUPARELIYA</a>
+        <div class="nav-links">
+            <a href="#page-2">ABOUT</a>
+            <a href="#page-3">CONTENTS</a>
+            <a href="#page-4">01. RIVAYAT</a>
+            <a href="#page-7">02. KASURIYA</a>
+            <a href="#page-9">03. COFFEE TABLE</a>
+        </div>
+        <div class="scroll-status">
+            <span id="current-page-num">01</span> / 10
+        </div>
+    </nav>
+
+    <!-- Floating Scroll Indicator -->
+    <div class="scroll-progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- ================= DYNAMIC AMBIENT BACKGROUND SYSTEM ================= -->
+    <div id="dynamic-bg-stage">
+        <!-- 1. All Works Collage Background (Cover, About, Contents) -->
+        <div class="bg-layer bg-collage active" id="bg-layer-collage">
+            <div class="collage-mesh">
+                <div class="collage-card"><img src="images/p4_img1.jpeg" alt="Rivayat Living" loading="eager"></div>
+                <div class="collage-card"><img src="images/p7_img1.jpeg" alt="Kasuriya Lamp" loading="eager"></div>
+                <div class="collage-card"><img src="images/p9_img5.jpeg" alt="Coffee Table" loading="eager"></div>
+                <div class="collage-card"><img src="images/p6_img1.jpeg" alt="Rivayat Entrance" loading="eager"></div>
+                <div class="collage-card"><img src="images/p8_img3.jpeg" alt="Kasuriya Suite" loading="eager"></div>
+                <div class="collage-card"><img src="images/p10_img2.jpeg" alt="Modular Table" loading="eager"></div>
+            </div>
+            <div class="bg-frosted-overlay"></div>
+        </div>
+
+        <!-- 2. Rivayat Video Background (Pages 4, 5, 6) -->
+        <div class="bg-layer bg-rivayat" id="bg-layer-rivayat">
+            <div class="bg-hero-image-wrapper">
+                <video class="bg-hero-video" autoplay muted loop playsinline preload="auto">
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="bg-frosted-overlay overlay-warm"></div>
+        </div>
+
+        <!-- 3. Kasuriya Warm Ambient Background (Pages 7, 8) -->
+        <div class="bg-layer bg-kasuriya" id="bg-layer-kasuriya">
+            <div class="bg-hero-image-wrapper">
+                <img src="images/p7_img1.jpeg" alt="Kasuriya Lighting Atmosphere" class="bg-hero-img">
+            </div>
+            <div class="bg-frosted-overlay overlay-amber"></div>
+        </div>
+
+        <!-- 4. Coffee Table Single Final Photo Backdrop (Pages 9, 10) -->
+        <div class="bg-layer bg-coffeetable" id="bg-layer-coffeetable">
+            <div class="bg-hero-image-wrapper">
+                <img src="images/p9_img1.jpeg" alt="Modular Coffee Table Final Design Backdrop" class="bg-hero-img bg-table-img">
+            </div>
+            <div class="bg-frosted-overlay overlay-stone"></div>
+        </div>
+    </div>
+
+    <!-- Main Editorial Portfolio Spreads -->
+    <main id="portfolio-container">
+
+        <!-- ================= PAGE 1: COVER ================= -->
+        <section id="page-1" class="pdf-spread page-cover" data-page="1">
+            <div class="split-left white-bg">
+                <div class="cover-center-content mover" data-move-y="40" data-move-x="-20">
+                    <div class="editorial-line line-anim"></div>
+                    <h1 class="cover-main-title">
+                        PORT-<br>FOLIO
+                    </h1>
+                    <div class="editorial-line line-anim"></div>
+                    <div class="cover-author-tag mover" data-move-x="30">-HARDI RUPARELIYA</div>
+                </div>
+            </div>
+            <div class="split-right accent-blush mover" data-move-speed="0.2">
+                <div class="cover-aesthetic-badge">INTERIOR DESIGN</div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 2: ABOUT ================= -->
+        <section id="page-2" class="pdf-spread page-about" data-page="2">
+            <!-- Left Column -->
+            <div class="about-col-left white-bg">
+                <div class="about-header-group">
+                    <h2 class="editorial-section-title mover" data-move-y="-30">About.</h2>
+                </div>
+
+                <div class="about-portrait-wrapper mover" data-move-y="50" data-move-rot="-2">
+                    <div class="img-frame shadow-hover">
+                        <img src="images/p2_img3.jpeg" alt="Hardi Rupareliya Portrait" class="parallax-target">
+                    </div>
+                </div>
+
+                <div class="about-bio-group mover" data-move-y="30">
+                    <h3 class="designer-name">Hardi Rupareliya</h3>
+                    <p class="designer-title">Interior Designer</p>
+                    <p class="bio-paragraph">
+                        I am an interior design student driven by a passion for creating thoughtful, functional, and human-centered spaces. My work explores furniture design, materiality, and Indian craftsmanship, with a focus on balancing aesthetics and purpose. Outside of design, I enjoy crocheting, sketching, and exploring new creative ideas that continually inspire my design approach.
+                    </p>
+
+                    <div class="contact-details-block">
+                        <div class="contact-line"><span>📞</span> +91 8485950623</div>
+                        <div class="contact-line"><span>✉️</span> rupareliyahardi28@gmail.com</div>
+                        <div class="contact-line"><span>📷</span> <em>_hardi.rupareliya_</em> | <em>_crochet.er_</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="about-col-right accent-blush">
+                <div class="resume-grid mover" data-move-y="60" data-move-x="30">
+                    
+                    <!-- Education Column -->
+                    <div class="resume-block">
+                        <h4 class="resume-heading">Education |</h4>
+                        <div class="timeline-entries">
+                            <div class="timeline-item">
+                                <div class="time-tag">|2024-2028|</div>
+                                <div class="time-desc">
+                                    <strong>Bachelors of Environment & Space Design</strong><br>
+                                    GLS institue of Design, Ahmedabad
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="time-tag">|2022-2024|</div>
+                                <div class="time-desc">
+                                    <strong>Secondary Education</strong><br>
+                                    NP Bhalodiya High School, Junagadh
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="time-tag">|2019-2022|</div>
+                                <div class="time-desc">
+                                    <strong>Secondary eduacation</strong><br>
+                                    Javiya Schooling System, Junagadh
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="time-tag">|2010-2018|</div>
+                                <div class="time-desc">
+                                    <strong>Primary eduacation</strong><br>
+                                    Eklavya Public School, Junagadh
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="resume-heading" style="margin-top: 2.5rem;">Interests |</h4>
+                        <ul class="clean-bullet-list">
+                            <li>Sketching</li>
+                            <li>Crocheting</li>
+                            <li>PhotoGraphy</li>
+                            <li>Travelling</li>
+                            <li>Exploring new things</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills & Certifications Column -->
+                    <div class="resume-block">
+                        <h4 class="resume-heading">Technical Software Skills |</h4>
+                        <div class="skill-meter-group">
+                            <div class="skill-row">
+                                <span class="skill-name">Autocad</span>
+                                <span class="dots-meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">Sketchup</span>
+                                <span class="dots-meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">Enscape</span>
+                                <span class="dots-meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="e"></i></span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">Indesign</span>
+                                <span class="dots-meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="e"></i><i class="e"></i></span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">Photoshop</span>
+                                <span class="dots-meter"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="e"></i><i class="e"></i></span>
+                            </div>
+                        </div>
+
+                        <h4 class="resume-heading" style="margin-top: 2.5rem;">Certifications |</h4>
+                        <p class="cert-text">
+                            <strong>Certificate of Completion:</strong><br>
+                            Photoshop for Architects: From zero to Advanced Master class
+                        </p>
+
+                        <h4 class="resume-heading" style="margin-top: 2rem;">Languages |</h4>
+                        <p class="languages-text">Hindi, English, Gujarati</p>
+
+                        <h4 class="resume-heading" style="margin-top: 2rem;">Soft Skills |</h4>
+                        <ul class="clean-bullet-list">
+                            <li>Teamwork & Collaboration</li>
+                            <li>Adaptability & Flexibility</li>
+                            <li>Conceptual thinking</li>
+                            <li>Attention to Detail</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 3: CONTENTS ================= -->
+        <section id="page-3" class="pdf-spread page-contents" data-page="3">
+            <div class="contents-container white-bg">
+                <h2 class="editorial-section-title mover" data-move-y="-20">Contents.</h2>
+                
+                <div class="contents-cards-row">
+                    <!-- Project 01 Card -->
+                    <a href="#page-4" class="content-card mover" data-move-y="40" data-move-rot="-1">
+                        <div class="card-num">01.</div>
+                        <div class="card-thumb-frame">
+                            <img src="images/p3_img2.jpeg" alt="01. Rivayat" class="parallax-target">
+                        </div>
+                        <div class="card-label">Rivayat</div>
+                    </a>
+
+                    <!-- Project 02 Card -->
+                    <a href="#page-7" class="content-card mover" data-move-y="60" data-move-rot="1">
+                        <div class="card-num">02.</div>
+                        <div class="card-thumb-frame">
+                            <img src="images/p7_img1.jpeg" alt="02. Kasuriya" class="parallax-target">
+                        </div>
+                        <div class="card-label">Kasuriya</div>
+                    </a>
+
+                    <!-- Project 03 Card -->
+                    <a href="#page-9" class="content-card mover" data-move-y="80" data-move-rot="-1">
+                        <div class="card-num">03.</div>
+                        <div class="card-thumb-frame">
+                            <img src="images/p3_img1.jpeg" alt="03. Coffee Table" class="parallax-target">
+                        </div>
+                        <div class="card-label">Coffee Tble</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 4: 01. RIVAYAT (CONCEPT & LAYOUT) ================= -->
+        <section id="page-4" class="pdf-spread page-project" data-page="4">
+            <div class="project-layout-p4">
+                <!-- Left Side: Title, Photos, Concept -->
+                <div class="p4-left-side">
+                    <div class="project-header-tag mover" data-move-x="-30">
+                        <h2 class="project-number-title">
+                            <span class="num-bold">01.</span> <span class="name-clean">Rivayat</span>
+                        </h2>
+                        <div class="project-sub-divider"></div>
+                    </div>
+
+                    <!-- Dual Photos Row -->
+                    <div class="dual-photos-row mover" data-move-y="50">
+                        <div class="photo-box shadow-hover mover" data-move-x="-20">
+                            <img src="images/p4_img1.jpeg" alt="Rivayat Living Room TV Unit" class="parallax-target">
+                        </div>
+                        <div class="photo-box shadow-hover mover" data-move-x="20">
+                            <img src="images/p4_img2.jpeg" alt="Rivayat Bedroom Arched Headboard" class="parallax-target">
+                        </div>
+                    </div>
+
+                    <!-- Concept Narrative -->
+                    <div class="project-intro-paragraph mover" data-move-y="30">
+                        <p>
+                            A contemporary residence inspired by the warmth and richness of Indian traditions. Rivayat combines earthy materials, handcrafted details, traditional patterns and modern forms to create an interior that feels both culturally rooted and suited to contemporary living.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Full Architectural Floor Plan -->
+                <div class="p4-right-side mover" data-move-y="70" data-move-scale="0.98">
+                    <div class="architectural-sheet-frame shadow-hover">
+                        <img src="images/crops/rivayat_floor_plan.png" alt="Rivayat Furniture Layout Plan 1:40 Scale" class="zoom-target">
+                    </div>
+                    <p class="editorial-sheet-caption">
+                        A functional layout focusing on spatial zoning, circulation, and furniture placement for comfortable living.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 5: 01. RIVAYAT (DETAILS & SECTIONS) ================= -->
+        <section id="page-5" class="pdf-spread page-project" data-page="5">
+            <div class="project-layout-p5">
+                <!-- Left: Stacked Photos -->
+                <div class="p5-left-side">
+                    <div class="stacked-photo mover" data-move-y="30" data-move-x="-30">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p5_img1.jpeg" alt="Rivayat Living Room with Traditional Wooden Swing (Jula)" class="parallax-target">
+                        </div>
+                    </div>
+                    <div class="stacked-photo mover" data-move-y="60" data-move-x="-20">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p5_img2.jpeg" alt="Rivayat Kitchen Fluted Glass & Wood Cabinets" class="parallax-target">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Detailed Story & CAD Sections -->
+                <div class="p5-right-side">
+                    <div class="p5-editorial-narrative mover" data-move-y="20">
+                        <p>
+                            The residence explores a contemporary expression of Indian heritage through material, craft, and detailing. Warm wood, cane, patterned surfaces, earthy tones, and handcrafted elements are carried throughout the living, dining, kitchen, and bedroom spaces to create a cohesive visual language. Traditional forms such as jali screens, carved wooden details, patterned tiles, and woven textures are reinterpreted within clean and functional spaces. Large openings bring in natural light and connect the interiors with the landscape, while the courtyard and outdoor areas extend the living experience beyond the built form. The overall design creates a home that feels warm, rooted, and timeless while remaining comfortable for contemporary living.
+                        </p>
+                    </div>
+
+                    <div class="p5-sections-frame mover" data-move-y="60" data-move-scale="0.97">
+                        <div class="architectural-sheet-frame shadow-hover">
+                            <img src="images/crops/rivayat_sections.png" alt="Rivayat Section A-A' Kitchen & Section B-B' Vanity Details" class="zoom-target">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 6: 01. RIVAYAT (EXTERIOR & 3D SITE) ================= -->
+        <section id="page-6" class="pdf-spread page-project" data-page="6">
+            <div class="project-layout-p6">
+                <!-- Left: 4 Exterior Perspective Renders -->
+                <div class="p6-renderings-grid">
+                    <div class="render-quad-item mover" data-move-y="30" data-move-x="-20">
+                        <img src="images/p6_img1.jpeg" alt="Rivayat Brick Entrance Pathway" class="parallax-target shadow-hover">
+                    </div>
+                    <div class="render-quad-item mover" data-move-y="50" data-move-x="20">
+                        <img src="images/p6_img2.jpeg" alt="Rivayat Car Driveway & Stone Accents" class="parallax-target shadow-hover">
+                    </div>
+                    <div class="render-quad-item mover" data-move-y="70" data-move-x="-20">
+                        <img src="images/p6_img3.jpeg" alt="Rivayat Wooden Louver Porch & Brick Wall" class="parallax-target shadow-hover">
+                    </div>
+                    <div class="render-quad-item mover" data-move-y="90" data-move-x="20">
+                        <img src="images/p6_img4.jpeg" alt="Rivayat Garden Pathway & Pavers" class="parallax-target shadow-hover">
+                    </div>
+                </div>
+
+                <!-- Right: Top-Down 3D Site Plan -->
+                <div class="p6-siteplan-wrapper mover" data-move-y="50" data-move-scale="1.02">
+                    <div class="siteplan-canvas-frame shadow-hover">
+                        <img src="images/p6_img5.jpeg" alt="Rivayat Top-Down Bird's Eye Site Plan" class="zoom-target">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 7: 02. KASURIYA (LIGHTING DESIGN & PROCESS) ================= -->
+        <section id="page-7" class="pdf-spread page-project" data-page="7">
+            <div class="project-layout-p7">
+                <!-- Left: Title, Big Lamp Photo, Story -->
+                <div class="p7-left-side">
+                    <div class="project-header-tag mover" data-move-x="-30">
+                        <h2 class="project-number-title">
+                            <span class="num-bold">02.</span> <span class="name-clean">Kasuriya</span>
+                        </h2>
+                        <div class="project-sub-divider"></div>
+                    </div>
+
+                    <div class="hero-lamp-container mover" data-move-y="50" data-move-rot="-1">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p7_img1.jpeg" alt="Kasuriya Handcrafted Lamp" class="parallax-target">
+                        </div>
+                    </div>
+
+                    <div class="lamp-story-paragraphs mover" data-move-y="30">
+                        <p>
+                            Kasuriya is a lighting design project inspired by the rich craft heritage of Karnataka. Drawing from the geometric motifs and intricate stitch language of Kasuti embroidery, the lamp explores how traditional craft can be interpreted through a contemporary product.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            The design brings together craft, material, and light to create a functional object that reflects cultural identity while fitting naturally into modern spaces.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: CAD Dimension Drawings & Vertical Workshop Process -->
+                <div class="p7-right-side">
+                    <!-- CAD Dimension Drawings -->
+                    <div class="lamp-cad-frame mover" data-move-y="40">
+                        <div class="architectural-sheet-frame shadow-hover">
+                            <img src="images/crops/kasuriya_cad.png" alt="Kasuriya CAD Elevation & Section 625mm Height" class="zoom-target">
+                        </div>
+                    </div>
+
+                    <!-- 4 Workshop Process Images Column -->
+                    <div class="lamp-process-column mover" data-move-y="70" data-move-x="30">
+                        <div class="process-thumbnail shadow-hover mover" data-move-y="20">
+                            <img src="images/p7_img2.jpeg" alt="Metal frame construction">
+                        </div>
+                        <div class="process-thumbnail shadow-hover mover" data-move-y="40">
+                            <img src="images/p7_img3.jpeg" alt="Sanding the MDF disc">
+                        </div>
+                        <div class="process-thumbnail shadow-hover mover" data-move-y="60">
+                            <img src="images/p7_img4.jpeg" alt="Hollow organic base shaping">
+                        </div>
+                        <div class="process-thumbnail shadow-hover mover" data-move-y="80">
+                            <img src="images/p7_img5.jpeg" alt="Fitting the light wiring">
+                        </div>
+                        <div class="process-caption-tag">process images.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 8: 02. KASURIYA (CRAFT DETAILS & SUITE) ================= -->
+        <section id="page-8" class="pdf-spread page-project" data-page="8">
+            <div class="project-layout-p8">
+                <!-- Left: 2 Close-up Details -->
+                <div class="p8-left-side">
+                    <div class="detail-photo-card mover" data-move-y="40" data-move-x="-30">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p8_img1.jpeg" alt="Translucent Muslin & Kasuti Geometric Stitching" class="parallax-target">
+                        </div>
+                    </div>
+                    <div class="detail-photo-card mover" data-move-y="80" data-move-x="-20">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p8_img2.jpeg" alt="Carved MDF Base Organic Curvature" class="parallax-target">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Comprehensive Craft Narrative & Room Perspective -->
+                <div class="p8-right-side">
+                    <div class="kasuriya-full-narrative mover" data-move-y="30">
+                        <p>
+                            Kasuriya is a lighting design project that explores the relationship between traditional Indian craftsmanship and contemporary product design. The project draws inspiration from Kasuti embroidery, a traditional craft from Karnataka known for its intricate geometric patterns, symbolic motifs, and detailed hand-stitched compositions.
+                        </p>
+                        <p>
+                            The aim was to understand how the visual language of a traditional craft could be translated into a modern functional object without losing its cultural character. Instead of directly reproducing the embroidery, the design interprets its patterns, symmetry, repetition, and handcrafted quality through the form and detailing of a table lamp.
+                        </p>
+                        <p>
+                            The lamp combines a muslin shade with an MDF base, creating a balance between softness and structure. The translucent quality of muslin allows light to diffuse gently, while the detailing inspired by Kasuti adds visual depth and connects the object to its craft origin.
+                        </p>
+                        <p>
+                            The project focuses on creating a product where light becomes a medium for expressing craft and culture. Kasuriya represents an attempt to bridge the gap between heritage and contemporary living by transforming a traditional craft language into a simple, functional, and visually refined lighting piece.
+                        </p>
+                    </div>
+
+                    <div class="lamp-room-frame mover" data-move-y="70" data-move-x="30">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p8_img3.jpeg" alt="Kasuriya Lamp In-Situ Contemporary Living Suite" class="parallax-target">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 9: 03. COFFEE TABLE (MODULARITY & WOODWORKING) ================= -->
+        <section id="page-9" class="pdf-spread page-project" data-page="9">
+            <div class="project-layout-p9">
+                <!-- Left: Title, Hero Table, Concept -->
+                <div class="p9-left-side">
+                    <div class="project-header-tag mover" data-move-x="-30">
+                        <h2 class="project-number-title">
+                            <span class="num-bold">03.</span> <span class="name-clean">Coffee Table</span>
+                        </h2>
+                        <div class="project-sub-divider"></div>
+                    </div>
+
+                    <div class="table-top-hero mover" data-move-y="50" data-move-rot="2">
+                        <div class="img-frame shadow-hover">
+                            <img src="images/p9_img5.jpeg" alt="Modular Coffee Table Top View in Red Teak / Stone" class="parallax-target">
+                        </div>
+                    </div>
+
+                    <div class="table-concept-text mover" data-move-y="30">
+                        <p>
+                            This coffee table explores the idea of modularity and multifunctionality through a stacking system. Each element is designed as a repeatable unit that can be rearranged into different forms and configurations.
+                        </p>
+                        <p style="margin-top: 1rem;">
+                            The project focuses on the relationship between stone and wood, combining the solidity of Makrana marble and Kota stone with the warmth of a teak wood top. The design moves beyond a conventional coffee table by allowing its individual components to be adapted for other uses within a space.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Process Narrative & Lathe Woodworking 2x2 Grid -->
+                <div class="p9-right-side">
+                    <div class="process-text-block mover" data-move-y="20">
+                        <h3 class="process-title">Process</h3>
+                        <p>
+                            The design was developed by exploring the properties of stone and metal, followed by experimentation with form, arrangement, and material combinations.
+                        </p>
+                        <p style="margin-top: 0.8rem;">
+                            The MDF table top was shaped and sanded to achieve smooth, curved edges. The teak wood components were carved using a lathe machine and divided into individual parts. The elements were then assembled as a stacking system to explore different permutations and combinations.
+                        </p>
+                        <p style="margin-top: 0.8rem; font-style: italic;">
+                            The original material concept included red Italian marble, Makrana marble, and yellow onyx, which was later reinterpreted using Makrana marble, Kota stone, and teak wood. The teak top was finished through putty, sanding, and colouring to achieve the final surface.
+                        </p>
+                    </div>
+
+                    <!-- 2x2 Woodworking Grid -->
+                    <div class="woodworking-grid mover" data-move-y="60" data-move-x="20">
+                        <div class="woodwork-photo shadow-hover mover" data-move-x="-15">
+                            <img src="images/p9_img1.jpeg" alt="Stone shaping process">
+                        </div>
+                        <div class="woodwork-photo shadow-hover mover" data-move-x="15">
+                            <img src="images/p9_img2.jpeg" alt="Marble spindle polishing">
+                        </div>
+                        <div class="woodwork-photo shadow-hover mover" data-move-x="-15">
+                            <img src="images/p9_img3.jpeg" alt="Lathe machine wood turning">
+                        </div>
+                        <div class="woodwork-photo shadow-hover mover" data-move-x="15">
+                            <img src="images/p9_img4.jpeg" alt="Finished wood disk assembly">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 10: 03. COFFEE TABLE (CONFIGURATIONS & OUTCOME) ================= -->
+        <section id="page-10" class="pdf-spread page-project" data-page="10">
+            <div class="project-layout-p10">
+                <!-- Top Narrative -->
+                <div class="p10-top-narrative mover" data-move-y="30">
+                    <p>
+                        The final design is a modular coffee table made from a combination of Makrana marble, Kota stone, and a finished teak wood top.
+                    </p>
+                    <p>
+                        Its individual elements can be stacked, rearranged, and reused, allowing the furniture to take on different configurations. The components can also function as partition elements or furniture legs, extending the product beyond its primary purpose as a coffee table.
+                    </p>
+                    <p>
+                        The final outcome demonstrates how modularity, material exploration, and multifunctionality can be integrated into a single furniture piece, creating a design that can adapt to different spatial and functional requirements.
+                    </p>
+                </div>
+
+                <!-- Center: Final Hero Stacking Table -->
+                <div class="p10-hero-table-wrapper mover" data-move-y="60" data-move-scale="1.04">
+                    <div class="clean-isolated-frame shadow-hover">
+                        <img src="images/p10_img2.jpeg" alt="Final Assembled Modular Coffee Table" class="parallax-target">
+                    </div>
+                </div>
+
+                <!-- Bottom: 4 Stacking Permutation Configurations -->
+                <div class="p10-configurations-strip mover" data-move-y="80" data-move-x="-20">
+                    <div class="configs-img-frame">
+                        <img src="images/p10_img1.jpeg" alt="4 Stacking System Configurations and Partitions" class="parallax-target">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">HARDI RUPARELIYA</div>
+            <div class="footer-copy">Interior Design Portfolio • Environment & Space Design • GLS Institute of Design</div>
+            <div class="footer-back-top"><a href="#page-1">↑ BACK TO TOP</a></div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Image Lightbox Modal for Inspection -->
+    <div id="imageLightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
